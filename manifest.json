@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "LeetLens",
+  "version": "1.0",
+  "permissions": [
+  "activeTab",
+  "storage"
+],
+ "icons": {
+    "16": "icons/leetlens.png",
+    "32": "icons/leetlens.png",
+    "48": "icons/leetlens.png",
+    "128": "icons/leetlens.png"
+  },
+"host_permissions": [
+  "https://generativelanguage.googleapis.com/*"
+],
+
+  "action": {
+  "default_popup": "popup/popup.html",
+   "default_icon": {
+      "16": "icons/leetlens.png",
+      "32": "icons/leetlens.png",
+      "48": "icons/leetlens.png"
+    }
+},
+"options_page": "settings/settings.html",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://leetcode.com/problems/*"
+      ],
+      "js": [
+      
+      "content/extractor.js",
+      "content/parser.js",
+      "content/graphql.js",
+      "content/cache.js",
+      "content/content.js"
+]
+    }
+  ]
+}
